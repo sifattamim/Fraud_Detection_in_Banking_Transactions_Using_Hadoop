@@ -1,94 +1,99 @@
-package com.pack;
+package com.fraud.model;
 
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TransactionData  implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@JsonProperty("card_id")
-	private Long cardId;
-	
-	@JsonProperty("member_id")
-	private Long memberId;
-	
-	@JsonProperty("amount")
-	private Double amount;
-	
-	@JsonProperty("pos_id")
-	private Long posId;
-	
-	@JsonProperty("postcode")
-	private Integer postcode;
-	
-	@JsonProperty("transaction_dt")
-	private String transactionDate;
-	
-    public TransactionData(){
+/**
+ * A data class representing individual credit card transaction details.
+ */
+public class CardTransaction implements Serializable {
+
+    private static final long serialVersionUID = 42L;
+
+    @JsonProperty("card_id")
+    private Long cardId;
+
+    @JsonProperty("member_id")
+    private Long memberId;
+
+    @JsonProperty("amount")
+    private Double amount;
+
+    @JsonProperty("pos_id")
+    private Long terminalId;
+
+    @JsonProperty("postcode")
+    private Integer postalCode;
+
+    @JsonProperty("transaction_dt")
+    private String timestamp;
+
+    public CardTransaction() {
+        // default constructor
     }
-    
-    public TransactionData(long cardId, long memberId, double amount, long posId, int postcode, String transactionDate) {
-        super();
+
+    public CardTransaction(long cardId, long memberId, double amount, long terminalId, int postalCode, String timestamp) {
         this.cardId = cardId;
         this.memberId = memberId;
         this.amount = amount;
-        this.posId = posId;
-        this.postcode = postcode;
-        this.transactionDate = transactionDate;
+        this.terminalId = terminalId;
+        this.postalCode = postalCode;
+        this.timestamp = timestamp;
     }
-	
-	public Long getCardId() {
-		return cardId;
-	}
-	
-	public Long getMemberId() {
-		return memberId;
-	}
-	
-	public Double getAmount() {
-		return amount;
-	}
-	
-	public Long getPosId() {
-		return posId;
-	}
-	
-	public Integer getPostcode() {
-		return postcode;
-	}
-	
-	public String getTransactionDate() {
-		return transactionDate;
-	}
-	
-	public void setCardId(long card_id) {
-		this.cardId = card_id;
-	}
-	
-	public void setMemberId(long member_id) {
-		this.memberId = member_id;
-	}
-	
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-	
-	public void setPosId(long posId) {
-		this.posId = posId;
-	}
-	
-	public void setPostcode(int postcode) {
-		this.postcode = postcode;
-	}
-	
-	public void setTransactionDate(String transactionDate) {
-		this.transactionDate = transactionDate;
-	}
-	
-	@Override
-	public String toString()
-	{
-		return this.cardId + "," + this.amount + "," + this.memberId + "," + this.posId + "," + this.postcode + "," + this.transactionDate;
-	}
+
+    // Getters
+    public Long getCardId() {
+        return cardId;
+    }
+
+    public Long getMemberId() {
+        return memberId;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public Long getTerminalId() {
+        return terminalId;
+    }
+
+    public Integer getPostalCode() {
+        return postalCode;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    // Setters
+    public void setCardId(long cardId) {
+        this.cardId = cardId;
+    }
+
+    public void setMemberId(long memberId) {
+        this.memberId = memberId;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public void setTerminalId(long terminalId) {
+        this.terminalId = terminalId;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @Override
+    public String toString() {
+        return cardId + "," + amount + "," + memberId + "," + terminalId + "," + postalCode + "," + timestamp;
+    }
 }
