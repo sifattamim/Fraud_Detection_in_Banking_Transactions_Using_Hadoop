@@ -1,9 +1,9 @@
-# 💳 Fraud detection in Bangking Transictions usging Hadoop
+#  Fraud detection in Bangking Transictions usging Hadoop
 
 This project demonstrates a real-time and batch-layer solution for detecting fraudulent credit card transactions using the Hadoop ecosystem, combining data from AWS RDS, Kafka, and local flat files. It applies multiple rule-based detection techniques to identify suspicious transactions.
 
 
-## 📁 Input Datasets
+##  Input Datasets
 
 | Dataset Name        | Description                                                | Source       |
 |---------------------|------------------------------------------------------------|--------------|
@@ -13,7 +13,7 @@ This project demonstrates a real-time and batch-layer solution for detecting fra
 | `Kafka Stream`      | Real-time transactions from POS terminals                  | Kafka topic  |
 
 
-## 🧱 System Architecture & Data Pipeline
+##  System Architecture & Data Pipeline
 
 ### 1. Ingest Batch Data from AWS RDS Using Sqoop
 
@@ -40,9 +40,9 @@ This project demonstrates a real-time and batch-layer solution for detecting fra
 
 
 
-## 🧠 Fraud Detection Rules
+##  Fraud Detection Rules
 
-### 🔹 Rule 1: Upper Control Limit (UCL)
+###  Rule 1: Upper Control Limit (UCL)
 
 **Objective:** Detect high-amount outliers based on recent transaction history.
 
@@ -57,7 +57,7 @@ This project demonstrates a real-time and batch-layer solution for detecting fra
 
 
 
-### 🔹 Rule 2: Credit Score Rule
+###  Rule 2: Credit Score Rule
 
 **Objective:** Flag users with poor credit history.
 
@@ -72,7 +72,7 @@ This project demonstrates a real-time and batch-layer solution for detecting fra
 
 
 
-### 🔹 Rule 3: Zip Code Distance vs. Time
+###  Rule 3: Zip Code Distance vs. Time
 
 **Objective:** Identify geographically impossible transactions.
 
@@ -89,7 +89,7 @@ This project demonstrates a real-time and batch-layer solution for detecting fra
 * If transaction is genuine, update HBase with new postcode and timestamp.
 
 
-## ⚡ Real-Time Stream Processing with Spark & Kafka
+##  Real-Time Stream Processing with Spark & Kafka
 
 ### 4. Real-Time Transaction Ingestion
 
@@ -111,14 +111,14 @@ For each incoming transaction:
 
 
 
-## 📝 Output Actions
+##  Output Actions
 
 * Write the classified result (Genuine or Fraudulent) back to Hive or HBase.
 * For **Genuine** transactions, update zip code and timestamp in HBase.
 
 
 
-## 🧰 Technologies Used
+##  Technologies Used
 
 | Component            | Tool/Service                     |
 | -------------------- | -------------------------------- |
@@ -130,7 +130,7 @@ For each incoming transaction:
 
 
 
-## ✅ Summary
+##  Summary
 
 This end-to-end pipeline leverages Hadoop's ecosystem to:
 
